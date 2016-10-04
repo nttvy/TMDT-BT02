@@ -3,10 +3,10 @@
 
                 <!-- Blog Search Well -->
                 <div class="well">
-                    <h4>Search</h4>
+                    <h4>Search User</h4>
                     <%= form_tag(search_url, method: "get") do %>
                         <div class="input-group">
-                            <%= text_field_tag "keywords", nil, class: "form-control", placeholder: "Search blog by title" %>
+                            <%= text_field_tag "keywords", nil, class: "form-control", placeholder: "Search user by firstname or lastname" %>
                             <span class="input-group-btn">
                                 <%= button_tag nil, class: "btn btn-default" do %>
                                     <span class="glyphicon glyphicon-search"></span>

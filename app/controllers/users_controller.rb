@@ -16,11 +16,14 @@ class UsersController < ApplicationController
     end
 
     def show
-    @user = User.find(params[:id])
-    @blogs = @user.blogs.page(params[:page]).per_page(5)
-    @blog = Blog.new
+        @user = User.find(params[:id])
+        @blogs = @user.blogs.page(params[:page]).per_page(5)
+        @blog = Blog.new
+    end
 
-
+     def search
+        keywords = params.require(:keywords)
+        @users = User.where("lower(firstname) like ? OR lower(lastname) like ?", "%#{keywords.downcase}%", "%#{keywords.downcase}%").page(params[:page]).per_page(5)
     end
 
     private
