@@ -1,0 +1,39 @@
+<!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4" style="margin-top: 109px">
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Search</h4>
+                    <%= form_tag(search_url, method: "get") do %>
+                        <div class="input-group">
+                            <%= text_field_tag "keywords", nil, class: "form-control", placeholder: "Search blog by title" %>
+                            <span class="input-group-btn">
+                                <%= button_tag nil, class: "btn btn-default" do %>
+                                    <span class="glyphicon glyphicon-search"></span>
+                                <% end %>
+                            </span>
+                        </div>
+                    <% end %>
+                    <!-- /.input-group -->
+                </div>
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>Tags</h4>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <% if Blog.tag_counts.empty? %>
+                                No tag
+                            <% end %>
+                            <div id="tag-cloud">
+                                <% tag_cloud Blog.tag_counts, %w[s m l] do |tag, css_class| %>
+                                    <%= link_to  tag.name, tag_path(tag.name), class: css_class %>
+                                <% end %>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+            </div>

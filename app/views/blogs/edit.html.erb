@@ -1,0 +1,40 @@
+    <% content_for :title, "Edit " + @blog.title + " - IsaBéry" %>
+    
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h1 class="page-header"> Edit entry </h1>
+
+                <!-- Blog form -->
+                <div class="well" style="min-height:390px">
+                    <%= form_for @blog, html: {role: "form"} do |f| %>
+                        <div class="form-group">
+                            <%= f.label :title %>
+                            <%= f.text_field :title, class: "form-control", placeholder: "Enter title", required: true %>
+                            </br>
+                            <%= f.label :content %>
+                            <%= f.text_area :content, rows: 5, class: "form-control", required: true %>
+                            </br>
+                            <%= f.label :tag_list, "Tags (separated by commas)" %>
+                            <%= f.text_field :tag_list, class: "form-control", placeholder: "Enter tags" %>
+                        </div>
+                        <%= f.submit "Submit", class: "btn btn-primary pull-right" %>
+                    <% end %>
+                </div>
+
+                <hr>
+
+            </div>
+
+            <%= render 'blogs/sidebar' %>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->

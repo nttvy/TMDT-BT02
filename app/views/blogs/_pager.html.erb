@@ -1,0 +1,14 @@
+<!-- Pager -->
+                <ul class="pager">
+                    <% if @blogs.next_page %>
+                        <li class="previous">
+                            <%= link_to "&larr; Older".html_safe, params.merge(:page => @blogs.next_page).permit! %>
+                        </li>
+                    <% end %>
+
+                    <% if @blogs.previous_page %>
+                        <li class="next">
+                            <%= link_to "Newer &rarr;".html_safe, params.merge(:page => @blogs.previous_page).permit! %>
+                        </li>
+                    <% end %>
+                </ul>
