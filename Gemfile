@@ -24,6 +24,10 @@ gem 'redcarpet'
 gem 'will_paginate', '~> 3.1.0'
 #Tagging
 gem 'acts-as-taggable-on', '~> 4.0'
+#Environment variable
+gem 'dotenv-rails', :groups => [:development, :test]
+#OmniAuth Twitter
+gem 'omniauth-twitter'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

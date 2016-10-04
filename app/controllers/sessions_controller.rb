@@ -14,6 +14,13 @@ class SessionsController < ApplicationController
     end
   end
 
+  def create_with_twitter
+    user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = user.id
+    flash[:success] = "Logged in successfully!"
+    redirect_to blogs_url
+  end
+
   def destroy
     session[:user_id] = nil
     flash[:success] = "Logged out successfully!"
