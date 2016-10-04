@@ -75,7 +75,7 @@
                     <!-- Comments Form -->
                     <div class="well" style="height: 200px">
                         <h4>Leave a Comment:</h4>
-                        <%= form_for [@blog, @comment], html: {role: "form"} do |f| %>
+                        <%= form_for [@blog, @comment], html: {role: "form"}, remote: true do |f| %>
                             <div class="form-group">
                                 <%= f.text_area :content, rows: 3, class: "form-control", required: true %>
                             </div>

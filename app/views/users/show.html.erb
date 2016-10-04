@@ -20,7 +20,7 @@
                     <!-- Blog form -->
                     <div class="well" style="min-height:430px">
                         <h4>Create new entry:</h4>
-                        <%= form_for @blog, url: {action: "create"}, html: {role: "form"} do |f| %>
+                        <%= form_for @blog, url: {action: "create"}, html: {role: "form"}, remote: true do |f| %>
                             <div class="form-group">
                                 <%= f.label :title %>
                                 <%= f.text_field :title, class: "form-control", placeholder: "Enter title", required: true %>

@@ -13,13 +13,13 @@ Danh sách chức năng **bắt buộc**:
 * [x] Người dùng được phép đăng nhập bằng tên tài khoản, mật khẩu.
 * [x] Người dùng có thể đăng trạng thái lên trang cá nhân.
 * [ ] Ở trang home, người dùng có thể xem trạng thái của bạn bè và những người đang được người đó follow. Cần thể hiện đầy đủ thông tin của trạng thái như hình ảnh, avatar,...
-* [ ] Người dùng có thể tìm kiếm người dùng khác
+* [x] Người dùng có thể tìm kiếm người dùng khác
 * [ ] Người dùng có thể follow người dùng khác
 * [x] Người dùng có thể thêm comment vào các bài đăng.
 * [ ] Người dùng có thể đăng nhập bằng Twitter qua OAuth(Sử dụng Omniauth Twitter)
 * [ ] Sử dụng Twitter API để cho phép tạo tweet lên Twitter của người dùng khi đăng trạng thái thành công (Sử dụng [Twitter Gem](https://github.com/sferik/twitter) và [đăng ký Application Token](https://apps.twitter.com))
 * [ ] Cần thể hiện số ký tự còn lại khi gõ (Twitter cho phép gõ trạng thái tối đa 140 ký tự)
-* [ ] Cần thực hiện AJAX và javascript để hạn chế nạp lại trang.
+* [x] Cần thực hiện AJAX và javascript để hạn chế nạp lại trang.
 * [ ] Cho phép tải danh sách các tweet vào trang chủ của người dùng
 * [ ] Cần quản lý API Key bằng biến môi trường (Sử dụng [dotenv gem](https://github.com/bkeepers/dotenv))
 
