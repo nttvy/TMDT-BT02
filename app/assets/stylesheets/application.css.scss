@@ -15,6 +15,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 html {
   position: relative;
@@ -130,4 +132,37 @@ textarea {
 {
     display: block;
     margin-top: 10px;
+}
+.divOr {
+    position: relative;
+    font-size: 1.5em;
+    color: #aaa;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+.divOr .hrOr {
+    background-color: #cdcdcd;
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.divOr .spanOr {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -1.5em;
+    background-color: #f7f7f7;
+    width: 3em;
+    text-align: center;
+}
+.btn-twitter {
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-twitter:hover {
+    color: #fff;
+    background-color:#59b5fa;
 }

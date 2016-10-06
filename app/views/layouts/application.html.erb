@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IsaBéry</title>
+    <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <%= link_to "IsaBéry", blogs_url, class: "navbar-brand" %>
+                <%= link_to "IsaBéry", root_url, class: "navbar-brand" %>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -29,7 +29,12 @@
                     <% if current_user %>
                         <li>
                           <%= link_to current_user do %>
-                            <span class="glyphicon glyphicon-user"> <%= current_user.firstname %> <%= current_user.lastname %>
+                            <% if current_user.image? %>
+                                <%= image_tag current_user.image_url.to_s, width: "24px", height: "24px"%>
+                            <% else %>
+                                <%= image_tag "avatar24.jpg"%>
+                            <% end %>
+                            <%= current_user.firstname %> <%= current_user.lastname %>
                           <% end %>
                         </li>
                         <li><%= link_to '<span class="glyphicon glyphicon-log-out"></span> Log Out'.html_safe, logout_path %></li>

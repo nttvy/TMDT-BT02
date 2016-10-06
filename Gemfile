@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -28,6 +28,10 @@ gem 'acts-as-taggable-on', '~> 4.0'
 gem 'dotenv-rails', :groups => [:development, :test]
 #OmniAuth Twitter
 gem 'omniauth-twitter'
+#Font Awesome
+gem 'font-awesome-sass', '~> 4.6.2'
+#Carrierwave
+gem 'carrierwave'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

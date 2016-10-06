@@ -28,12 +28,19 @@
                 <% end %>
 
                 <!-- Title -->
-                <h1><%= @blog.title %></h1>
+                <h1>
+                    <% if @blog.user.image? %>
+                        <%= image_tag @blog.user.image_url.to_s, width: "40px", height: "40px" %>
+                    <% else %>
+                        <%= image_tag "avatar40.jpg" %>
+                    <% end %>
 
-                <!-- Author -->
-                <p class="lead">
-                    by <%= @blog.user.firstname %> <%= @blog.user.lastname %>
-                </p>
+                    <%= @blog.title %>
+
+                    <span class="lead">
+                        by <%= link_to @blog.user do %><%= @blog.user.firstname %> <%= @blog.user.lastname %><% end %>
+                    </span>
+                </h1>
 
                 <hr>
 
@@ -55,6 +62,11 @@
 
 
                 <hr>
+
+                <% if @blog.image? %>
+                    <%= image_tag @blog.image_url.to_s, width: "750px", height: "250px" %>
+                    <hr>
+                <% end %>
 
                 <!-- Post Content -->
                 <p class="lead"><%= markdown(@blog.content) %></p>
@@ -101,11 +113,16 @@
 
                     <!-- Comment -->
                     <div class="media" style="margin-bottom: 20px">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="http://placehold.it/64x64" alt="">
-                        </a>
+                        <%= link_to comment.user, class: "pull-left" do %>
+                            <% if comment.user.image? %>
+                                <%= image_tag comment.user.image_url.to_s, width: "64px", height: "64px", class: "media-object" %>
+                            <% else %>
+                                <%= image_tag "avatar64.jpg", class: "media-object" %>
+                            <% end %>
+                            
+                        <% end %>
                         <div class="media-body">
-                            <h4 class="media-heading"> <%= comment.user.firstname %> <%= comment.user.lastname %>
+                            <h4 class="media-heading"> <%= link_to comment.user do %><%= comment.user.firstname %> <%= comment.user.lastname %><% end %>
                                 <small><%= time_ago_in_words(comment.created_at) %></small>
                             </h4>
                             <%= markdown(comment.content) %>

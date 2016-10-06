@@ -17,16 +17,23 @@
 
 							<h1 class="text-center login-title">Log in to continue to IsaBéry</h1>
 							<div class="account-wall">
-								<img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-									alt="">
+                                <%= image_tag "profile_default.jpg", class: "profile-img" %>
                                 <%= form_tag sessions_path, class: "form-signin" do %>
                                     <%= email_field_tag :email, params[:email], class: "form-control", placeholder: "Enter your email", required: true, autofocus: true %>
                                     <%= password_field_tag :password, nil, class: "form-control", placeholder: "Enter your password", required: true %>
                                     <%= submit_tag "Log in", class: "btn btn-lg btn-primary btn-block" %>
                                 <% end %>
+                                <div class="divOr">
+                                    <hr class="hrOr">
+                                    <span class="spanOr">OR</span>
+                                </div>
+                                <div class="form-signin">
+                                    <%= link_to "/auth/twitter", class: "btn btn-lg btn-block btn-twitter" do %>
+                                     <%= icon "twitter" %> Log in with Twitter
+                                    <% end %>
+                                </div>
 							</div>
                             <%= link_to "Create an account", signup_path, class: "text-center new-account" %>
-                            <%= link_to "Sign in with Twitter", "/auth/twitter", class: "text-center new-account" %>
 						</div>
 					</div>
 				</div>

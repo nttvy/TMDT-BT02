@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_many :blogs
     has_many :comments
-
+    mount_uploader :image, ImageUploader
     has_secure_password
 
     validates_uniqueness_of :email

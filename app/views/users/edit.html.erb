@@ -1,0 +1,40 @@
+    <% content_for :title, "Edit profile" + @user.firstname + " " + @user.lastname + " - IsaBéry" %>
+    
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h1 class="page-header"> Edit entry </h1>
+
+                <!-- Blog form -->
+                <div class="well" style="min-height:305px">
+                    <%= form_for @user, html: {role: "form"} do |f| %>
+                        <div class="form-group">
+                            <%= f.label :firstname %>
+                            <%= f.text_field :firstname, class: "form-control", placeholder: "Enter firstname", required: true %>
+                            </br>
+                            <%= f.label :lastname %>
+                            <%= f.text_field :lastname, class: "form-control", placeholder: "Enter lastname", required: true %>
+                            </br>
+                            <%= f.label :image %>
+                            <%= f.file_field :image, class: "form-control" %>
+                        </div>
+                        <%= f.submit "Submit", class: "btn btn-primary pull-right" %>
+                    <% end %>
+                </div>
+
+                <hr>
+
+            </div>
+
+            <%= render 'blogs/sidebar' %>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->

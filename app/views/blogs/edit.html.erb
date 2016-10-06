@@ -11,7 +11,7 @@
                 <h1 class="page-header"> Edit entry </h1>
 
                 <!-- Blog form -->
-                <div class="well" style="min-height:390px">
+                <div class="well" style="min-height:465px">
                     <%= form_for @blog, html: {role: "form"} do |f| %>
                         <div class="form-group">
                             <%= f.label :title %>
@@ -19,6 +19,9 @@
                             </br>
                             <%= f.label :content %>
                             <%= f.text_area :content, rows: 5, class: "form-control", required: true %>
+                            </br>
+                            <%= f.label :image %>
+                            <%= f.file_field :image, class: "form-control" %>
                             </br>
                             <%= f.label :tag_list, "Tags (separated by commas)" %>
                             <%= f.text_field :tag_list, class: "form-control", placeholder: "Enter tags" %>
