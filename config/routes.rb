@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  post 'follow', to: 'followships#create', as: 'follow'
+  post 'addfriend', to: 'friendships#create', as: 'addfriend'
+
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
+  resources :followships, only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy]
   resources :sessions
   resources :users
   resources :blogs do

@@ -3,18 +3,9 @@ class SessionsController < ApplicationController
   before_filter :logined, only: [:new, :create, :crete_with_twitter]
 
   def new
-    unless current_user.nil?
-      redirect_to root_url
-      return
-    end
   end
 
   def create
-    unless current_user.nil?
-      redirect_to root_url
-      return
-    end
-
     user = User.find_by_email(params[:email])
 
     if user && user.authenticate(params[:password])
@@ -28,12 +19,11 @@ class SessionsController < ApplicationController
   end
 
   def create_with_twitter
-    unless current_user.nil?
-      redirect_to root_url
-      return
+    if User.find_by_email(env["omniauth.auth"].uid + "@twitter.com")
+      user = User.find_by_email(env["omniauth.auth"].uid + "@twitter.com")
+    else
+      user = User.from_omniauth(env["omniauth.auth"])
     end
-
-    user = User.from_omniauth(env["omniauth.auth"])
 
     session[:user_id] = user.id
     flash[:success] = "Logged in successfully!"

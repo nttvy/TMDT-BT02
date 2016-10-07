@@ -2,19 +2,10 @@ class UsersController < ApplicationController
     before_filter :logined, only: [:new, :create]
 
     def new
-        unless current_user.nil?
-            redirect_to root_url
-            return
-        end
         @user = User.new
     end
 
     def create
-        unless current_user.nil?
-            redirect_to root_url
-            return
-        end
-
         @user = User.create(user_params)
 
         if @user.save
@@ -33,7 +24,7 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         @user.update(params.require(:user).permit(:firstname, :lastname, :image))
-
+        flash[:success] = "User successfully updated!"
         redirect_to user_path(params[:id])
     end
 
@@ -41,6 +32,20 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @blogs = @user.blogs.page(params[:page]).per_page(5)
         @blog = Blog.new
+
+        if current_user
+            if current_user.friends.include?(@user)
+                @friendship = current_user.friendships.find_by friend: @user
+            end
+
+            if current_user.inverse_friends.include?(@user)
+                @friendship = current_user.inverse_friendships.find_by user: @user
+            end
+
+            if current_user.followings.include?(@user)
+                @followship = current_user.followships.find_by following: @user
+            end
+        end
     end
 
      def search

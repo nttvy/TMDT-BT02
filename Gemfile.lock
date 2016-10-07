@@ -24,6 +24,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_record_union (1.2.0)
+      activerecord (>= 4.0)
     activejob (5.0.0.1)
       activesupport (= 5.0.0.1)
       globalid (>= 0.3.6)
@@ -178,6 +180,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  active_record_union
   acts-as-taggable-on (~> 4.0)
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.6)

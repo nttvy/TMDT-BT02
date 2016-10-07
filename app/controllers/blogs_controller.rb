@@ -1,9 +1,22 @@
 class BlogsController < ApplicationController
-  before_filter :authorize, only: [:create, :edit, :update, :destroy]
+  before_filter :authorize, only: [:show_blog_tagged, :create, :edit, :update, :destroy]
 
   def index
-    @blogs = Blog.all.order("updated_at DESC").page(params[:page]).per_page(5)
-    @blog = Blog.new
+    if current_user
+      @blogs = current_user.blogs
+      current_user.friends.each do |user|
+        @blogs = user.blogs.union(@blogs)
+      end
+      current_user.inverse_friends.each do |user|
+        @blogs = user.blogs.union(@blogs)
+      end
+      current_user.followings.each do |user|
+        @blogs = user.blogs.union(@blogs)
+      end
+      @blogs = @blogs.order("updated_at DESC").page(params[:page]).per_page(5)
+
+      @blog = Blog.new
+    end
   end
 
   def show
@@ -29,7 +42,7 @@ class BlogsController < ApplicationController
   def update
     @blog = Blog.find(params[:id])
     @blog.update(blog_params)
-
+    flash[:success] = "Blog successfully updated!"
     redirect_to blog_path(params[:id])
   end
 

@@ -32,6 +32,8 @@ gem 'omniauth-twitter'
 gem 'font-awesome-sass', '~> 4.6.2'
 #Carrierwave
 gem 'carrierwave'
+#Union
+gem 'active_record_union'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
