@@ -92,5 +92,16 @@
                             </ul>
                         <% end %>
                     </div>
+
+                    <% if current_user.provider == "twitter" %>
+                        <div class="well">
+                            <h4>Tweets</h4>
+                            <% @tweets.each do |tweet| %>
+                                <blockquote><%= tweet.text %></blockquote>
+                                <div class="pull-right">&mdash; @<%= tweet.user.screen_name %></div>
+                                </br>
+                            <% end %>
+                        </div>
+                    <% end %>
                 <% end %>
             </div>

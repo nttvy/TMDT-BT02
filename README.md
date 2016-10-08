@@ -22,7 +22,7 @@ Danh sách chức năng **bắt buộc**:
 * [x] Sử dụng Twitter API để cho phép tạo tweet lên Twitter của người dùng khi đăng trạng thái thành công (Sử dụng [Twitter Gem](https://github.com/sferik/twitter) và [đăng ký Application Token](https://apps.twitter.com))
 * [x] Cần thể hiện số ký tự còn lại khi gõ (Twitter cho phép gõ trạng thái tối đa 140 ký tự)
 * [x] Cần thực hiện AJAX và javascript để hạn chế nạp lại trang.
-* [ ] Cho phép tải danh sách các tweet vào trang chủ của người dùng
+* [x] Cho phép tải danh sách các tweet vào trang chủ của người dùng
 * [x] Cần quản lý API Key bằng biến môi trường (Sử dụng [dotenv gem](https://github.com/bkeepers/dotenv))
 
 Danh sách chức năng **phụ**:
