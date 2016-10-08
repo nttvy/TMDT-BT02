@@ -19,7 +19,7 @@ Danh sách chức năng **bắt buộc**:
 * [x] Người dùng có thể follow người dùng khác
 * [x] Người dùng có thể thêm comment vào các bài đăng.
 * [x] Người dùng có thể đăng nhập bằng Twitter qua OAuth(Sử dụng Omniauth Twitter)
-* [ ] Sử dụng Twitter API để cho phép tạo tweet lên Twitter của người dùng khi đăng trạng thái thành công (Sử dụng [Twitter Gem](https://github.com/sferik/twitter) và [đăng ký Application Token](https://apps.twitter.com))
+* [x] Sử dụng Twitter API để cho phép tạo tweet lên Twitter của người dùng khi đăng trạng thái thành công (Sử dụng [Twitter Gem](https://github.com/sferik/twitter) và [đăng ký Application Token](https://apps.twitter.com))
 * [x] Cần thể hiện số ký tự còn lại khi gõ (Twitter cho phép gõ trạng thái tối đa 140 ký tự)
 * [x] Cần thực hiện AJAX và javascript để hạn chế nạp lại trang.
 * [ ] Cho phép tải danh sách các tweet vào trang chủ của người dùng

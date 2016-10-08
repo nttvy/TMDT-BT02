@@ -34,6 +34,8 @@ gem 'font-awesome-sass', '~> 4.6.2'
 gem 'carrierwave'
 #Union
 gem 'active_record_union'
+#Twitter
+gem 'twitter'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -31,6 +31,10 @@ class BlogsController < ApplicationController
   def create
     @blog = current_user.blogs.create!(blog_params)
 
+    if (current_user.provider == "twitter" && params[:tweet])
+      current_user.tweet(@blog.content)
+    end
+
     flash[:success] = "Blog successfully created!"
     redirect_to root_url
   end

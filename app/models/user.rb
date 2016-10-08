@@ -20,8 +20,21 @@ class User < ApplicationRecord
             user.email = auth.uid + "@twitter.com"
             user.remote_image_url = auth.info.image.sub("_normal", "")
             user.password_digest = auth.extra.access_token.token
+            user.provider = auth.provider
+            user.oauth_token = auth.credentials.token
+            user.oauth_secret = auth.credentials.secret
             user.save
         end
     end
 
+    def tweet(tweet)
+        twitter = Twitter::REST::Client.new do |config|
+            config.consumer_key = ENV['TWITTER_KEY']
+            config.consumer_secret = ENV['TWITTER_SECRET']
+            config.access_token = oauth_token
+            config.access_token_secret = oauth_secret
+        end
+        
+        twitter.update(tweet)
+    end
 end

@@ -20,8 +20,9 @@ class SessionsController < ApplicationController
 
   def create_with_twitter
     auth = env["omniauth.auth"]
-    if User.find_by_email(auth.uid + "@twitter.com")
-      user = User.find_by_email(auth.uid + "@twitter.com")
+    email = auth.uid + "@twitter.com"
+    if User.find_by_email(email)
+      user = User.find_by_email(email)
       user.remote_image_url = auth.info.image.sub("_normal", "")
       user.save
     else

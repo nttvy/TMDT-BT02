@@ -49,6 +49,9 @@
                                 </br>
                                 <%= f.label :content %>
                                 <%= f.text_area :content, id: "content-textarea", rows: 5, class: "form-control", required: true, placeholder: "Enter content (max lenght is 140 character)", maxlength: "140" %>
+                                <% if current_user.provider == "twitter"%>
+                                    <%= check_box_tag :tweet, 1, false, style: "margin-top: 10px" %> Tweet
+                                <% end %>
                                 <span id="character-remaining" class="pull-right" style="margin-top: 10px;"></span>
                                 </br>
                                 <%= f.label :image %>
