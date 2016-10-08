@@ -97,8 +97,10 @@
                         <div class="well">
                             <h4>Tweets</h4>
                             <% @tweets.each do |tweet| %>
-                                <blockquote><%= tweet.text %></blockquote>
-                                <div class="pull-right">&mdash; @<%= tweet.user.screen_name %></div>
+                                <div>
+                                    <a href="<%= tweet.uri %>"><blockquote><%= tweet.text %></blockquote></a>
+                                    <div class="pull-right" style="margin-top: -15px">&mdash; @<%= tweet.user.screen_name %></div>
+                                </div>
                                 </br>
                             <% end %>
                         </div>
