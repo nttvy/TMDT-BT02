@@ -1,5 +1,24 @@
     <% content_for :title, "Home - IsaBéry" %>
     
+    <script>
+        $(document).ready(function() {
+            $('.dropdown-toggle').dropdown();
+
+            var max_length = 140;
+            var text_length = $('#content-textarea').val().length;
+            var text_remaining = max_length - text_length;
+            
+            $('#character-remaining').html(text_remaining + " character(s) remaining(s)");
+
+            $('#content-textarea').keyup(function() {
+                text_length = $(this).val().length;
+                text_remaining = max_length - text_length;
+
+                $('#character-remaining').html(text_remaining + " character(s) remaining(s)");
+            });
+        });
+    </script>
+
     <!-- Page Content -->
     <div class="container">
 
@@ -29,7 +48,8 @@
                                 <%= f.text_field :title, class: "form-control", placeholder: "Enter title", required: true %>
                                 </br>
                                 <%= f.label :content %>
-                                <%= f.text_area :content, rows: 5, class: "form-control", required: true, placeholder: "Enter content" %>
+                                <%= f.text_area :content, id: "content-textarea", rows: 5, class: "form-control", required: true, placeholder: "Enter content (max lenght is 140 character)", maxlength: "140" %>
+                                <span id="character-remaining" class="pull-right" style="margin-top: 10px;"></span>
                                 </br>
                                 <%= f.label :image %>
                                 <%= f.file_field :image, class: "form-control" %>
